@@ -1179,6 +1179,8 @@ int AliHLTGlobalEsdConverterComponent::ProcessBlocks(TTree* pTree, AliESDEvent* 
 	tESD->SetStatus(AliESDtrack::kTRDin);
 	tESD->SetTRDpid(TRDpid);
 
+	tESD->SetTRDntracklets(trdTrack.GetNtracklets() << 3); //added for HLT TRD QA development
+
 	if( pESDfriend ) { 
 	  AliESDfriendTrack *friendTrack = pESDfriend->GetTrack(esdID);
 	  if( friendTrack ){ // fill TRD track and space points	    
